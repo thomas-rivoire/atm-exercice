@@ -1,4 +1,4 @@
-import ATMScreen from "../Modules/ATM/components/ATMScreen";
+import ATMScreen from "../Modules/ATM/Components/ATMScreen";
 
 export default function Home() {
 

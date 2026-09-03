@@ -1,3 +1,7 @@
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 main {
   margin-top: 3rem;
 }
@@ -16,12 +20,20 @@ main {
   flex-direction: column;
 }
 
+.gap-4 {
+  gap: .25rem;
+}
+
 .gap-24 {
   gap: 1.5rem;
 }
 
 .gap-48 {
   gap: 3rem;
+}
+
+.mt-8 {
+  margin-top: 8px;
 }
 
 .btn-container {
@@ -63,4 +75,41 @@ main {
 .keypad-btn {
   padding: .5rem;
   cursor: pointer;
+}
+
+.check-btn {
+  background-color: rgb(63, 225, 63);
+  border: 1px unset gray;
+}
+.check {
+  color: darkgreen;
+}
+
+.undo-btn {
+  background-color: orange;
+  border: 1px unset gray;
+}
+.undo {
+  color: rgb(175, 97, 1);
+}
+
+.cancel-btn {
+  border: 1px unset gray;
+  background-color: red;
+}
+.cancel {
+  color: darkred;
+}
+
+.action-btn:hover {
+  cursor: pointer;
+  border: 1px inset gray;
+}
+
+.error-message {
+  color: white;
+  background-color: darkred;
+  padding: .5rem;
+  text-align: center;
+  margin: .5rem;
 }
