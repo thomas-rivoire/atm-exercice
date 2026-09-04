@@ -1,14 +1,16 @@
 import { useState } from "react"
 import { Cancel, CheckCircle, KeyboardReturn } from '@mui/icons-material';
 import handleSubmit from "../../../Utils/handleSubmit";
+import type { Bill } from "../types/bill";
 
 interface Props {
     setAmount: (value: number) => void,
     setErrorMessage: (value: string) => void,
-    setStep: (step: number) => void
+    setStep: (step: number) => void,
+    stock: Bill[]
 }
 
-export default function NumericKeypad({ setAmount, setErrorMessage, setStep }: Props) {
+export default function NumericKeypad({ setAmount, setErrorMessage, setStep, stock }: Props) {
 
     const [value, setValue] = useState('');
 
@@ -38,7 +40,7 @@ export default function NumericKeypad({ setAmount, setErrorMessage, setStep }: P
             </div>
             <div className="flex-row gap-4 mt-8">
                 <button 
-                    onClick={() => handleSubmit(value, setErrorMessage, setAmount, setStep)}
+                    onClick={() => handleSubmit(value, stock, setErrorMessage, setAmount, setStep)}
                     className="action-btn check-btn">
                     <CheckCircle className="check"/>
                 </button>

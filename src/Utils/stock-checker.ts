@@ -8,5 +8,5 @@ export function isWithdrawPossible(amount: number, stock: Bill[]): boolean {
         totalValue += billValue.amount * billValue.total;        
     });
 
-    return totalValue > amount;
+    return totalValue >= amount;
 }

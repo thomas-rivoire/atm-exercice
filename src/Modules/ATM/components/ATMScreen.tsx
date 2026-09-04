@@ -2,8 +2,6 @@ import { useState } from "react";
 import ATMHome from "./ATMHome";
 import { useStock } from "../Context/StockContext";
 import handleSubmit from "../../../Utils/handleSubmit";
-import ATMLoader from "./ATMLoader";
-import ATMChoice from "./ATMChoice";
 
 export default function ATMScreen() {
 
@@ -22,21 +20,21 @@ export default function ATMScreen() {
                         <p>10</p>
                         <button
                             className="amount-btn"
-                            onClick={() => handleSubmit('10', setErrorMessage, setAmount, setStep)}>
+                            onClick={() => handleSubmit('10', stock, setErrorMessage, setAmount, setStep)}>
                         </button>
                     </div>
                     <div className="btn-container first-btn-container">
                         <p>20</p>
                         <button
                             className="amount-btn"
-                            onClick={() => handleSubmit('20', setErrorMessage, setAmount, setStep)}>
+                            onClick={() => handleSubmit('20', stock, setErrorMessage, setAmount, setStep)}>
                         </button>
                     </div>
                     <div className="btn-container first-btn-container">
                         <p>50</p>
                         <button
                             className="amount-btn"
-                            onClick={() => handleSubmit('50', setErrorMessage, setAmount, setStep)}>
+                            onClick={() => handleSubmit('50', stock, setErrorMessage, setAmount, setStep)}>
                         </button>
                     </div>
                 </div>
@@ -53,35 +51,25 @@ export default function ATMScreen() {
                                 setAmount={setAmount}
                                 setErrorMessage={setErrorMessage}
                                 setStep={setStep}
+                                stock={stock}
                             /> :
-                            step === 1 ?
-                                <ATMLoader
-                                    amount={amount}
-                                    stock={stock}
-                                    setErrorMessage={setErrorMessage}
-                                    setStep={setStep}
-                                /> :
-                                step === 2 ?
-                                    <ATMChoice
-                                        amount={amount}
-                                        stock={stock}
-                                    /> :
-
-                                    ''
+                        step === 1 ?
+                            <p>Opération validée ! Montant récupéré : `${amount}`</p> :
+                            ''
                     }
                 </div>
                 <div className="flex-col gap-48">
                     <div className="btn-container">
                         <button
                             className="amount-btn"
-                            onClick={() => handleSubmit('100', setErrorMessage, setAmount, setStep)}>
+                            onClick={() => handleSubmit('100', stock, setErrorMessage, setAmount, setStep)}>
                         </button>
                         <p>100</p>
                     </div>
                     <div className="btn-container">
                         <button
                             className="amount-btn"
-                            onClick={() => handleSubmit('200', setErrorMessage, setAmount, setStep)}>
+                            onClick={() => handleSubmit('200', stock, setErrorMessage, setAmount, setStep)}>
                         </button>
                         <p>200</p>
                     </div>

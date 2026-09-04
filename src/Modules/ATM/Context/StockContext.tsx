@@ -12,23 +12,23 @@ export function StockProvider({ children }: { children: ReactNode}) {
         setStock([
             {
                 amount: 10,
-                total: 100
+                total: 1
             },
             {
                 amount: 20,
-                total: 150
+                total: 0
             },
             {
                 amount: 50,
-                total: 200
+                total: 0
             },
             {
                 amount: 100,
-                total: 100
+                total: 0
             },
             {
                 amount: 200,
-                total: 50
+                total: 0
             }
         ])
     }, []);

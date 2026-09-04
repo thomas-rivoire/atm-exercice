@@ -1,13 +1,18 @@
+import { updateStock } from "../Modules/ATM/Services/stockService";
+import type { Bill } from "../Modules/ATM/types/bill";
 import { isEndingByZero, isPositive, isStartingByZero, isUnderMaxAmount } from "./amount-checker";
+import { distribution } from "./distribution";
 
 export default function handleSubmit(
     value: string, 
+    stock: Bill[],
     setErrorMessage: (message: string) => void,
     setAmount: (amount: number) => void,
     setStep: (step: number) => void
 ) {
 
-    const isNumEndingByZero = isEndingByZero(Number(value));
+    setErrorMessage('');
+    const isNumEndingByZero = isEndingByZero(Number(value))
     if (!isNumEndingByZero) {
         setErrorMessage('Le montant doit terminer par 0 (j\'ai pas le terme exact)');
         return;
@@ -30,6 +35,14 @@ export default function handleSubmit(
         setErrorMessage('Le montant choisi ne doit pas commencer par 0');
         return;        
     }
+
+    const billDistribution = distribution(Number(value), stock);
+    if(!billDistribution) {
+        setErrorMessage("Opération impossible !");
+        return;
+    }
+    
+    updateStock(stock, billDistribution);
 
     setAmount(Number(value));
     setStep(1)
