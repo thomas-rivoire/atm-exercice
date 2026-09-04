@@ -20,7 +20,10 @@ export default function NumericKeypad({ setAmount, setErrorMessage, setStep }: P
 
     return (
         <div id="numeric-keypad">
-            <div id="value-container">{ value }</div>
+            <div id="value-container">
+                <p>{ value }</p>
+                <div className="bar"></div>
+            </div>
             <div id="keypad">
                 <button className="keypad-btn" onClick={() => setValue(prev => prev + 7)}>7</button>
                 <button className="keypad-btn" onClick={() => setValue(prev => prev + 8)}>8</button>
